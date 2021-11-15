@@ -7,10 +7,10 @@ from django.core.paginator import Paginator , EmptyPage , InvalidPage
 def index(request):
     categories = Category.objects.all() 
     blogs = Blogs.objects.all()
-    latest = Blogs.objects.all().order_by('-pk')[:2]
+    latest = Blogs.objects.all().order_by('-pk')[:4]
 
     #paginations 
-    paginator = Paginator(blogs,4)
+    paginator = Paginator(blogs,2)
     try:
         page = int(request.GET.get('page','1'))
     except : 
