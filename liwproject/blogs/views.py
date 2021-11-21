@@ -21,3 +21,7 @@ def index(request):
     except (EmptyPage,InvalidPage):
         blogPerpage = paginator.page(paginator.num_pages)
     return render(request,"frontend/index.html",{'categories':categories,'blogs':blogPerpage,'latest':latest}) 
+
+def blogDetail(request,id):
+        singleBlog = Blogs.objects.get(id=id)
+        return render(request,"frontend/blogDetail.html",{"blog": singleBlog})
