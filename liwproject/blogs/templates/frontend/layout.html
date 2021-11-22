@@ -31,14 +31,15 @@
     <link href="{% static 'frontend/css/colors.css' %}" rel="stylesheet">
 
     <!-- Version Tech CSS for this template -->
-    <link href="{% static 'frontend/css/version/tech.css' %}" rel="stylesheet">   
-
+    <link href="{% static 'frontend/css/version/tech.css' %}" rel="stylesheet">  
+    <!-- Adjust CSS templates -->
+    <link href="{% static 'frontend/CSS_myself/adjust.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" class="wrapperNavbar">
         <header class="tech-header header">
             <div class="container-fluid">
-                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: red;">
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -78,7 +79,7 @@
                             <div class="shadow-desc">
                                 <div class="blog-meta">
                                     <span class="bg-orange"><a href="#" title="">{{blog.category}}</a></span>
-                                    <h4><a href="#" title="">{{blog.name}}</a></h4>
+                                    <h4><a href="{%url 'blogDetail' blog.id%}" title="">{{blog.name}}</a></h4>
                                     <small><a href="#" title="">{{blog.created}}</a></small>
                                     <small><a href="tech-author.html" title="">{{blog.writer}}</a></small>
                                 </div><!-- end meta -->

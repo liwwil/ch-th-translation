@@ -1,43 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load static%}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'frontend/CSS_myself/blog_detail.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>ch-translation</title>
-<body>
-    <nav class="navbar navbar-expand-sm bg-danger navbar-danger">
-        <!-- Brand/logo -->
-        <a class="navbar-brand" href="#">
-          <img src="https://i.pinimg.com/564x/6d/a1/25/6da125d1a1aad6d219f9be776197ae1c.jpg" alt="logo" style="width:40px;">
-        </a>
-        <!-- Links -->
-        <ul class="navbar-nav ">
-          <li class="nav-item">
-            <a class="nav-link nav-color" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-color" href="#">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-color" href="#">Novel</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="object">
-        <div class="object_details">
-            <div class="chinese-light">
-                <img class="light-left-riht " src="https://cdn-icons.flaticon.com/png/512/3180/premium/3180478.png?token=exp=1637137832~hmac=e4da196e3f62c960ad4a938621c750ee" alt="logo">
-                <img class="light-middle " src="https://cdn-icons.flaticon.com/png/512/3180/premium/3180478.png?token=exp=1637137832~hmac=e4da196e3f62c960ad4a938621c750ee" alt="logo">
-                <img class="light-left-riht " src="https://cdn-icons.flaticon.com/png/512/3180/premium/3180478.png?token=exp=1637137832~hmac=e4da196e3f62c960ad4a938621c750ee" alt="logo">
-            </div>
-        </div>
+{%extends "frontend/layout.html"%}
+{%block content%}
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+  <div class="page-wrapper">
+      <div class="blog-title-area text-center">
+          <span class="color-orange"><a href="#" title="">{{blog.category}}</a></span>
+          <h3>{{blog.name}}</h3>
 
-      </div>
-</body>
-</html>
+          <div class="blog-meta big-meta">
+              <small><a href="#" title="">{{blog.created}}</a></small>
+              <small><a href="#" title="">{{blog.writer}}</a></small>
+              <small><a href="#" title=""><i class="fa fa-eye"></i> {{blog.views}}</a></small>
+          </div><!-- end meta -->
+
+          <div class="post-sharing">
+              <ul class="list-inline">
+                  <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                  <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                  <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+              </ul>
+          </div><!-- end post-sharing -->
+      </div><!-- end title -->
+
+      <div class="single-post-media">
+          <img src="{{blog.image.url}}" alt="" class="img-fluid">
+      </div><!-- end media -->
+      <div class="blog-content">  
+          <p>{{blog.content}}</p>
+      </div><!-- end content -->
+  </div><!-- end page-wrapper -->
+</div><!-- end col -->
+{%endblock%}
